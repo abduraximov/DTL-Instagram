@@ -8,7 +8,7 @@ class Profile(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(_('Full name'), max_length=64)
     avatar = models.ImageField(upload_to='profile/avatars/', default='default_avatar.png', blank=True)
-    last_active_time = models.DateTimeField(_('Last active time'), blank=True)
+    last_active_time = models.DateTimeField(_('Last active time'), blank=True, null=True)
     online = models.BooleanField(default=False, blank=True)
 
     def __str__(self):
